@@ -5,7 +5,6 @@ export default function Home() {
     return (
         <>
             <h1>Home</h1>
-            <FontAwesomeIcon icon={faCheck} className="valid" />
         </>
     )
 }

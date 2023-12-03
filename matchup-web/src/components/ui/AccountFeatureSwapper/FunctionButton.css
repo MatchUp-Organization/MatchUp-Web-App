@@ -1,0 +1,11 @@
+.account-feature-swapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+a.function-button {
+    color: black;
+    background-color: white;
+    padding: 0.25rem;
+}
