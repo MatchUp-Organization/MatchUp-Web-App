@@ -9,6 +9,7 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 export default function Signup() {
     const userRef = useRef();
     const errRef = useRef();
+    const formRef = useRef();
 
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
@@ -24,6 +25,10 @@ export default function Signup() {
 
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
 
     useEffect(() => {
         userRef.current.focus();
@@ -42,21 +47,73 @@ export default function Signup() {
         setErrMsg('');
     }, [user, pwd, matchPwd])
 
+    const handleButtonClick = async () => {
+        //formRef.current.submit();
+
+        const url = 'http://localhost:3001/users';
+        const data = {
+          username: user,
+          password: pwd
+        };
+    
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+          await sleep(5000);
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log('response success : ' + responseData);
+          } else {
+            console.error('Request failed with status:', response.status);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // if button enabled with JS hack
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
         if (!v1 || !v2) {
             setErrMsg("Invalid Entry");
             return;
         }
+        const url = 'http://localhost:3001/users';
+        const data = {
+          username: user,
+          password: pwd
+        };
+    
+        try {
+          const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          });
+          await sleep(5000);
+          if (response.ok) {
+            const responseData = await response.json();
+            console.log('response success : ' + responseData);
+          } else {
+            console.error('Request failed with status:', response.status);
+          }
+        } catch (error) {
+          console.error('Error:', error);
+        }
     }
 
     return (
         <div className="signup-form">
             <h1>Signup</h1>
-            <form className="account-form" onSubmit={handleSubmit}>
+            <form className="account-form" ref={formRef} onSubmit={handleSubmit}>
                 <div className="form-input-area">
                     <label htmlFor="username">
                         Username:
@@ -137,7 +194,7 @@ export default function Signup() {
                         </p>
                     </div>
                 </div>
-                <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                <button onClick={handleButtonClick} disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
             </form>
         </div>
     )
