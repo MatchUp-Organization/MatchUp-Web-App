@@ -11,14 +11,20 @@ function AccountPageSwitcher() {
         return (
             <div className="account-container">
                 <Signup />
-                <AccountFeatureSwapper content={"Click Here"} onClickFunction={() => setAccountState("login")} />
+                <AccountFeatureSwapper
+                    content={"Already have an account?"}
+                    buttonContent={"Click Here"}
+                    onClickFunction={() => setAccountState("login")} />
             </div>
         )
     } else if (accountState === "login") {
         return (
             <div className="account-container">
                 <Login />
-                <AccountFeatureSwapper content={"Create an Account"} onClickFunction={() => setAccountState("register")} />
+                <AccountFeatureSwapper
+                    content={"Don't have an account?"}
+                    buttonContent={"Create an Account"}
+                    onClickFunction={() => setAccountState("register")} />
             </div>
         )
     }

@@ -1,5 +1,5 @@
 import "./App.css"
-import Navbar from "./layouts/Navbar"
+import PageHeader from "./layouts/PageHeader"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Account from "./pages/Account"
@@ -7,8 +7,8 @@ import { Route, Routes } from "react-router-dom"
 
 function App() {
   return (
-    <>
-      <Navbar />
+    <div className="max-h-screen flex flex-col">
+      <PageHeader />
       <div className="page-container">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -16,7 +16,7 @@ function App() {
           <Route path="/account" element={<Account />} />
         </Routes>
       </div>
-    </>
+    </div>
   );
 }
 

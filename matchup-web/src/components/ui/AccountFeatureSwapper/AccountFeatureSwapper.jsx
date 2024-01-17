@@ -1,12 +1,15 @@
+import { Button } from "../Button/Button"
 import "./FunctionButton.css"
 
-export default function AccountFeatureSwapper({ content, onClickFunction }) {
+export default function AccountFeatureSwapper({ content, buttonContent, onClickFunction }) {
     return (
         <div className="account-feature-swapper">
-            Don't have an account?
+            {content}
             <span className="line">
                 <a className="function-button" onClick={onClickFunction}>
-                    {content}
+                    <Button variant="default" size="default">
+                        {buttonContent.length > 0 ? buttonContent : "Click Here"}
+                    </Button>
                 </a>
             </span>
         </div>

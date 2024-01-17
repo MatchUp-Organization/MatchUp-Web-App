@@ -55,7 +55,7 @@ export default function Signup() {
 
     return (
         <div className="signup-form">
-            <h1>Signup</h1>
+            <h1>Login</h1>
             <form className="account-form" onSubmit={handleSubmit}>
                 <div className="form-input-area">
                     <label htmlFor="username">
