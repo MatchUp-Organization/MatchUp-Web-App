@@ -1,9 +1,15 @@
 import "./Account.css"
+import useAuth from "../../hooks/useAuth";
 
 export default function Account() {
-    return (
-        <div className="page">
-            <h1>Account</h1>
-        </div>
-    );
+  const { auth } = useAuth();
+
+  return (
+    <div className="page">
+      <h1>Account</h1>
+      <h2>
+        username: {auth.username}
+      </h2>
+    </div>
+  );
 }

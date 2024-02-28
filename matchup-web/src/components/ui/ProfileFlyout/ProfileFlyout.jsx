@@ -43,7 +43,7 @@ export default function ProfileFlyout({ ...props }) {
             <h2 className="text-center text-2xl font-bold">
               {fakeUser.username}
             </h2>
-            <div>
+            <div className='flex flex-col divide-y-2 divide-highlight p-2'>
               <div className="flex gap-2">
                 <h3>Name:</h3>
                 <p>{fakeUser.name}</p>
@@ -61,12 +61,14 @@ export default function ProfileFlyout({ ...props }) {
                 <p>{fakeUser.phone}</p>
               </div>
             </div>
-            <Button variant="default" size="default" className="w-full">
-              Profile
-            </Button>
-            <Button variant="default" size="default" className="w-full" onClick={logout}>
-              Logout
-            </Button>
+            <div className='flex flex-col gap-2 p-2'>
+              <Button variant="default" size="default" className="w-full">
+                Profile
+              </Button>
+              <Button variant="default" size="default" className="w-full" onClick={logout}>
+                Logout
+              </Button>
+            </div>
           </div>
         </div>
       );

@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         highlight: {
-          DEFAULT: '#80CB4F',
+          DEFAULT: '#3F72AF',
         },
         secondary: {
           DEFAULT: colors.neutral[200],
