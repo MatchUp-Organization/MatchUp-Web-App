@@ -12,10 +12,6 @@
     text-align: center;
 }
 
-.signin-form>h1 {
-    text-align: center;
-}
-
 form.account-form {
     width: 100%;
     min-height: 300px;

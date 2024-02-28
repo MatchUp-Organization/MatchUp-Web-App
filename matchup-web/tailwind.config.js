@@ -9,6 +9,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        highlight: {
+          DEFAULT: '#80CB4F',
+        },
         secondary: {
           DEFAULT: colors.neutral[200],
           hover: colors.neutral[300],
