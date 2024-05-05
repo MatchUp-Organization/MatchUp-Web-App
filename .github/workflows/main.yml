@@ -24,8 +24,5 @@ jobs:
 
     - name: Deploy Website
       run: |
-        sshpass -p "${{ secrets.VM_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.VM_USERNAME }}@${{ secrets.VM_HOST }} -p ${{ secrets.SSH_PORT }} '
-          cd /home/tiagomartinssousa/MatchUp-Web-App/matchup-web &&
-          git pull origin main &&
-          npm install'
+        sshpass -p "${{ secrets.VM_PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.VM_USERNAME }}@${{ secrets.VM_HOST }} -p ${{ secrets.SSH_PORT }} 'cd /home/tiagomartinssousa/MatchUp-Web-App/matchup-web && git pull origin main'
           
