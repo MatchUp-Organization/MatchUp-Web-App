@@ -5,10 +5,11 @@ import CheckIcon from '@mui/icons-material/Check';
 import InfoIcon from '@mui/icons-material/Info';
 import "./Signup.css";
 import { Button } from "../../components/ui/Button/Button";
+import BannerImage from "../../assets/signup-banner-img.png";
 
 const USER_REGEX = /^[A-z0-9-_]{4,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = 'http://localhost:3001/users';
+const REGISTER_URL = 'http://4.211.104.91:3001/users';
 
 export default function Signup() {
   const userRef = useRef();
@@ -110,9 +111,15 @@ export default function Signup() {
   }
 
   return (
-    <div className="account-container">
+    <div className="signup-container">
+      <div className="signup-side-panel">
+        <img src={BannerImage} alt="signup banner" className="mb-10" />
+        <h2 className="text-4xl my-4">Matchup</h2>
+        <p>Matchup is a platform for creating and managing sports events.</p>
+        <p>Sign up to create and join events.</p>
+      </div>
       <div className="signup-form">
-        <h1>Signup</h1>
+        <h1 className="text-4xl mb-3">Signup</h1>
         {success ? (
           <section>
             <h2>Success!</h2>

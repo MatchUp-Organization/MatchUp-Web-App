@@ -1,5 +1,4 @@
 import "./App.css"
-import PageHeader from "./layouts/PageHeader"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Account from "./pages/Account"
@@ -13,25 +12,22 @@ import PersistLogin from "./components/other/PersistLogin"
 function App() {
   return (
     <div className="max-h-screen flex flex-col">
-      <PageHeader />
-      <div className="page-container">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
 
-          {/* Protected routes */}
-          <Route element={<PersistLogin />}>
-            <Route element={<RequireAuth />}>
-              <Route path="/account" element={<Account />} />
-            </Route>
+        {/* Protected routes */}
+        <Route element={<PersistLogin />}>
+          <Route element={<RequireAuth />}>
+            <Route path="/account" element={<Account />} />
           </Route>
+        </Route>
 
-          {/* 404 */}
-          <Route path="*" element={<Missing />} />
-        </Routes>
-      </div>
+        {/* 404 */}
+        <Route path="*" element={<Missing />} />
+      </Routes>
     </div>
   );
 }

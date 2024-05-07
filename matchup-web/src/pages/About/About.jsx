@@ -1,5 +1,10 @@
+import PageHeader from "../../layouts/PageHeader/PageHeader";
+
 export default function About() {
-    return (
-        <h1>About</h1>
-    )
+  return (
+    <>
+      <PageHeader />
+      <h1>About</h1>
+    </>
+  )
 }

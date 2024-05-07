@@ -23,10 +23,18 @@ body {
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-        monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-#root {
-    height: 100vh;
+:root {
+    --primary: #3F72AF;
+    --secondary: #F9A826;
+    --tertiary: #F9A826;
+    --dark: #000;
+    --light: #fff;
+    --danger: #ff0000;
+    --success: #00ff00;
+    --warning: #ffff00;
+    --info: #00ffff;
+    --input-bg: #dddddd;
 }

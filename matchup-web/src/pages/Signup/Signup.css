@@ -1,14 +1,28 @@
-.account-container {
+.signup-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
     width: 100%;
-    max-width: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.2);
 }
 
-.signup-form>h1 {
+.signup-side-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #3F72AF;
+    color: #fff;
+}
+
+.signup-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-form>h2 {
     text-align: center;
 }
 
@@ -42,11 +56,12 @@ form.account-form {
     margin-bottom: 0.5rem;
 }
 
-.form-input-area>input {
+.signup-form .form-input-area>input {
     border: 0;
     height: 25px;
     border-radius: 0.5rem;
     padding-left: 0.5rem;
+    background-color: var(--input-bg)
 }
 
 div.instructions {
