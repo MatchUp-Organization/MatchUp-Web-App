@@ -19,7 +19,7 @@ export default function PageHeader() {
   return (
     <div className="flex gap-10 lg:gap-20 justify-between py-2 px-2 lg:px-5 bg-gray-200">
       <div className="flex items-center flex-shrink-0">
-        <Link to="/" className="flex flex-row items-center gap-2">
+        <Link to="/index" className="flex flex-row items-center gap-2">
           <img src="/MatchUpLogoSimple.png" alt="MatchUp" className="h-10 w-10" />
           <span className="text-2xl">MatchUp</span>
         </Link>
@@ -29,8 +29,8 @@ export default function PageHeader() {
         <div className="md:hidden">
           <Search />
         </div>
-        <div className="relative">
-          <span className="mr-4 cursor-pointer" onClick={toggleSportsMenu}>Sports</span>
+        <div className="flex items-center relative mr-3">
+          <span className="cursor-pointer" onClick={toggleSportsMenu}>Sports</span>
           {showSportsMenu && (
             <div className="absolute top-full left-0 mt-1 w-40 bg-white rounded-md shadow-lg py-1">
               <CustomLink to="/football" onClick={closeSportsMenu}>Football</CustomLink>
@@ -40,7 +40,7 @@ export default function PageHeader() {
             </div>
           )}
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center mr-3">
           <Link to="/about">About</Link>
         </div>
         <div className="flex items-center">

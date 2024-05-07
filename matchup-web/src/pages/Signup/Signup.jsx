@@ -18,7 +18,12 @@ export default function Signup() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from.pathname || "/";
+  var from;
+  if (location.state?.from === null) {
+    from = "/";
+  } else {
+    from = location.state?.from.pathname || "/";
+  }
 
   const [user, setUser] = useState('');
   const [validName, setValidName] = useState(false);

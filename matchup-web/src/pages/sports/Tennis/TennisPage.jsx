@@ -25,9 +25,7 @@ function TennisPage() {
 
     return (
         <>
-    <div>
-        <PageHeader />
-    </div>
+            <PageHeader />
             <div className="tennis-page">
                 <h1>Tennis Page</h1>
                 <p>

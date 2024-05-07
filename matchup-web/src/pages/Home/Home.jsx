@@ -1,48 +1,82 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
-import "./Home.css"; // Import your CSS file here
-import PageHeader from "../../layouts/PageHeader";
-import Signup from "../Signup/Signup";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import Accordion from "../../components/Accordion";
+import "./HomeTwo.css"; // Import your CSS file here
+import MatchUpLogo from "../../assets/MatchUp-Logo.svg";
+import PollImg from "../../assets/trust.png";
+import BirdImg from "../../assets/heureux.png";
+
 export default function Home() {
+    const [inputValue, setInputValue] = useState("");
+
+    const handleInputChange = (event) => {
+        setInputValue(event.target.value);
+    };
+
     return (
-        <>       
-         <div>
-            <PageHeader />
-        </div>
-            <div className="home-container">
-                <header>
-                    <h1>Welcome to MatchUp</h1>
-                    <p>Connecting sports enthusiasts worldwide!</p>
+        <div className="body-general">
+            <div className="top-body-general">
+                <header className="homeHeader">
+                    <Link to="/login" className="login-button">
+                        Login
+                    </Link>
                 </header>
-                <section className="intro-section">
-                    <h2>What is MatchUp?</h2>
-                    <p>MatchUp is a platform designed to bring together people from around the world to play sports together or against each other. Whether you're into football, basketball, tennis, or any other sport, MatchUp has something for everyone.</p>
-                    <p>Similar to the Celebreak app by Adidas, MatchUp aims to foster a global community of sports lovers and provide them with the opportunity to connect, compete, and have fun.</p>
-                </section>
-                <section className="features-section">
-                    <h2>Key Features</h2>
-                    <div className="feature">
-                        <FontAwesomeIcon icon={faCheck} className="icon" />
-                        <p>Play with or against people from diverse backgrounds and skill levels.</p>
+                <div className="body-home">
+                    <img src={MatchUpLogo} alt="MatchUp Logo" className="body-home-logo" />
+                    <h1 className="body-home-title">MatchUp</h1>
+                    <h1 className="body-home-title">Transform Today, Triumph Tomorrow</h1>
+                    <div className="body-signIn">
+                        <div className="inputBox">
+                            <input
+                                type="email"
+                                id="signIn"
+                                required
+                                value={inputValue}
+                                onChange={handleInputChange}
+                            />
+                            <span>Email...</span>
+                        </div>
+                        <button className="body-start-button">Start</button>
                     </div>
-                    <div className="feature">
-                        <FontAwesomeIcon icon={faCheck} className="icon" />
-                        <p>Find matches and players for multiple sports.</p>
-                    </div>
-                    <div className="feature">
-                        <FontAwesomeIcon icon={faCheck} className="icon" />
-                        <p>Easy-to-use interface for seamless matchmaking and game scheduling.</p>
-                    </div>
-                </section>
-                <section className="get-started-section">
-                    <h2>Get Started</h2>
-                    <p>Ready to join the MatchUp community? Sign up now and start playing!</p>
-                    <button className="btn" onClick={() => <Signup />}>Sign Up</button>
-                </section>
-                <footer>
-                    <p>&copy; 2024 MatchUp. All rights reserved.</p>
-                </footer>
+                </div>
             </div>
-        </>
+            <div className="body-infos">
+                <div className="banner">
+                    <img src={BirdImg} alt="Banner" className="banner-img" />
+                    <div className="banner-text">
+                        <h1 className="banner-title">
+                            MatchUp is free
+                            <br /> Try it right now.
+                        </h1>
+                        <h2 className="banner-about">LEARN MORE</h2>
+                    </div>
+                </div>
+                <div className="body-infos-poll">
+                    <div className="infos-text">
+                        <h2 className="infos-title">Seamless Connectivity</h2>
+                        <p className="infos-para">
+                            Our platform bridges the gap between athletes and coaches.<br />
+                            Creating a dynamic sports community where users can effortlessly<br /> Find and connect with each other for enriching sports experiences.
+                        </p>
+                    </div>
+                    <img src={PollImg} alt="Poll" className="poll-img" />
+                </div>
+                <div className="separator"></div>
+                <div className="body-infos-poll">
+                    <div className="infos-text">
+                        <h2 className="infos-title">Personalized Experience</h2>
+                        <p className="infos-para">
+                            Tailored to fit individual preferences, the platform offers a personalized journey.<br />
+                            Allowing users to engage in specialized training, sports events and more...
+                        </p>
+                    </div>
+                    <img src={PollImg} alt="Poll" className="poll-img" />
+                </div>
+                <div className="separator"></div>
+                <div>
+                    <Accordion />
+                </div>
+            </div>
+        </div>
     )
 }

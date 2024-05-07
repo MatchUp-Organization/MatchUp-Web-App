@@ -5,8 +5,7 @@
     width: 100%;
 }
 
-.login-side-panel {
-    display: flex;
+#login-side-panel {
     flex-direction: column;
     align-items: center;
     justify-content: center;

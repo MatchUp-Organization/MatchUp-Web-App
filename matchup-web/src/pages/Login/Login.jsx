@@ -12,7 +12,12 @@ export default function Login() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from.pathname || "/";
+  var from;
+  if (location.state?.from === null) {
+    from = "/";
+  } else {
+    from = location.state?.from.pathname || "/";
+  }
 
   const userRef = useRef();
   const errRef = useRef();
@@ -56,7 +61,7 @@ export default function Login() {
         // clear input fields
         setUser('');
         setPwd('');
-        navigate(from, { replace: true });
+        navigate("/index", { replace: true });
       } else {
         console.error('Request failed with status:', response.status);
         if (response.status === 401) {

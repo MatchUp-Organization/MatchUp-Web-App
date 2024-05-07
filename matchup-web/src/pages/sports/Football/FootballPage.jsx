@@ -24,9 +24,7 @@ function FootballPage() {
 
     return (
         <>
-            <div>
-                <PageHeader />
-            </div>
+            <PageHeader />
             <div className="football-page">
                 <h1>Football Page</h1>
                 <p>
