@@ -4,6 +4,7 @@ import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import "./NewLogin.css"; // Import your CSS file here
 import LoginImage from "../../assets/login-banner-img.png";
 import SignupImage from "../../assets/signup-banner-img.png";
+import { Link } from "react-router-dom";
 
 export default function NewLogin() {
     const [isChecked, setIsChecked] = useState(false);
@@ -59,7 +60,9 @@ export default function NewLogin() {
                                                         <FontAwesomeIcon icon={faLock} className="input-icon uil uil-lock-alt icon-small" /> {/* Adjust the font size */}
                                                     </div>
                                                 </div>
-                                                <button className="btn mt-3 bg-blue-500 text-white px-4 py-2 rounded">submit</button> {/* Adjusted margin */}
+                                                <Link to="/loginBackup">
+                                                    <button className="btn mt-3 bg-blue-500 text-white px-4 py-2 rounded">submit</button> {/* Adjusted margin */}
+                                                </Link>
                                                 <p className="mb-0 mt-2 text-center"><a href="#0" className="link">Forgot your password?</a></p> {/* Adjusted margin */}
                                             </div>
                                         </div>
@@ -86,7 +89,9 @@ export default function NewLogin() {
                                                         <FontAwesomeIcon icon={faLock} className="input-icon uil uil-lock-alt icon-small" /> {/* Adjust the font size */}
                                                     </div>
                                                 </div>
-                                                <button className="btn mt-3 bg-blue-500 text-white px-4 py-2 rounded">submit</button> {/* Adjusted margin */}
+                                                <Link to="/loginBakcup">
+                                                    <button className="btn mt-3 bg-blue-500 text-white px-4 py-2 rounded">submit</button> {/* Adjusted margin */}
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>
