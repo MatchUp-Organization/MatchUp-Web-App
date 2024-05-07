@@ -50,13 +50,13 @@ export default function NewLogin() {
                                                 <div className="form-group">
                                                     <div className="input-container">
                                                         <input type="email" name="logemail" className="form-style" placeholder="Your Email or Username" id="logemail" autoComplete="off" />
-                                                        <FontAwesomeIcon icon={faAt} className="input-icon uil uil-at icon-small" style={{ fontSize: "0.5em" }} /> {/* Adjust the font size */}
+                                                        <FontAwesomeIcon icon={faAt} className="input-icon uil uil-at icon-small" /> {/* Adjust the font size */}
                                                     </div>
                                                 </div>
                                                 <div className="form-group mt-2">
                                                     <div className="input-container">
                                                         <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autoComplete="off" />
-                                                        <FontAwesomeIcon icon={faLock} className="input-icon uil uil-lock-alt icon-small" style={{ fontSize: "0.5em" }} /> {/* Adjust the font size */}
+                                                        <FontAwesomeIcon icon={faLock} className="input-icon uil uil-lock-alt icon-small" /> {/* Adjust the font size */}
                                                     </div>
                                                 </div>
                                                 <button className="btn mt-3 bg-blue-500 text-white px-4 py-2 rounded">submit</button> {/* Adjusted margin */}
@@ -71,19 +71,19 @@ export default function NewLogin() {
                                                 <div className="form-group">
                                                     <div className="input-container">
                                                         <input type="text" name="logname" className="form-style" placeholder="Your Full Name" id="logname" autoComplete="off" />
-                                                        <FontAwesomeIcon icon={faAt} className="input-icon uil uil-at icon-small" style={{ fontSize: "0.8em" }} /> {/* Adjust the font size */}
+                                                        <FontAwesomeIcon icon={faAt} className="input-icon uil uil-at icon-small" /> {/* Adjust the font size */}
                                                     </div>
                                                 </div>
                                                 <div className="form-group mt-2">
                                                     <div className="input-container">
                                                         <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autoComplete="off" />
-                                                        <FontAwesomeIcon icon={faAt} className="input-icon uil uil-at icon-small" style={{ fontSize: "0.8em" }} /> {/* Adjust the font size */}
+                                                        <FontAwesomeIcon icon={faAt} className="input-icon uil uil-at icon-small" /> {/* Adjust the font size */}
                                                     </div>
                                                 </div>
                                                 <div className="form-group mt-2">
                                                     <div className="input-container">
                                                         <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autoComplete="off" />
-                                                        <FontAwesomeIcon icon={faLock} className="input-icon uil uil-lock-alt icon-small" style={{ fontSize: "0.8em" }} /> {/* Adjust the font size */}
+                                                        <FontAwesomeIcon icon={faLock} className="input-icon uil uil-lock-alt icon-small" /> {/* Adjust the font size */}
                                                     </div>
                                                 </div>
                                                 <button className="btn mt-3 bg-blue-500 text-white px-4 py-2 rounded">submit</button> {/* Adjusted margin */}
