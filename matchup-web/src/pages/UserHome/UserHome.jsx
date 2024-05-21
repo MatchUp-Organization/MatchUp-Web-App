@@ -105,7 +105,6 @@ export default function UserHome() {
           <div className="contact-container">
             <div className="regular-contact">
               <p>Email: matchup_2025@labeip.epitech.eu</p>
-              <p>Phone: <i>To be determined</i> </p>
             </div>
             <div className="contact-divider"></div>
             <div className="socials-contact">
@@ -124,7 +123,7 @@ export default function UserHome() {
             </div>
           </div>
           <div className="logo-n-legal">
-            <img src="MatchUp-Logo-Simple.PNG" alt="MatchUp Logo" />
+            <img src={MatchUpLogo} alt="MatchUp Logo" />
             <span>Copyright © 2024-2025 MatchUp</span>
           </div>
         </footer>
