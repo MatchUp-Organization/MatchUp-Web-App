@@ -32,7 +32,7 @@ export default function PageHeader() {
         <div className="flex items-center relative mr-3">
           <span className="cursor-pointer" onClick={toggleSportsMenu}>Sports</span>
           {showSportsMenu && (
-            <div className="absolute top-full left-0 mt-1 w-40 bg-white rounded-md shadow-lg py-1">
+            <div className="absolute top-full left-0 mt-1 w-40 bg-white rounded-md shadow-lg py-1 z-10">
               <CustomLink to="/football" onClick={closeSportsMenu}>Football</CustomLink>
               <CustomLink to="/basketball" onClick={closeSportsMenu}>Basketball</CustomLink>
               <CustomLink to="/volleyball" onClick={closeSportsMenu}>Volleyball</CustomLink>
