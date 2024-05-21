@@ -1,0 +1,40 @@
+.pitches-list-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pitches-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.pitch-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 46px;
+    text-align: center;
+    width: 400px;
+}
+
+.pitch-image {
+    width: 100%;
+    height: auto;
+}
+
+h3 {
+    margin: 8px 0;
+}
+
+p {
+    margin: 8px 0;
+}
+
+.pitches-list-wrapper .pick-text {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+}

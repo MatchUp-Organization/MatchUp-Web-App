@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './FootballPage.css';
 import PageHeader from '../../../layouts/PageHeader';
+import { Link } from 'react-router-dom';
 
 function FootballPage() {
     const [name, setName] = useState('');
@@ -73,7 +74,9 @@ function FootballPage() {
                         Height (cm):
                         <input type="number" value={height} onChange={(e) => setHeight(e.target.value)} required />
                     </label>
+                    <Link to="/pitches" >
                     <button type="submit">Submit</button>
+                    </Link>
                 </form>
             </div>
         </>
