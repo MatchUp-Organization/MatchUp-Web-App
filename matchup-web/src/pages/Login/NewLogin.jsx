@@ -145,14 +145,14 @@ export default function NewLogin() {
   return (
     <div id="login-page" className="flex flex-row h-screen">
       <div id="login-side-panel" className="flex flex-col w-1/2 h-full bg-blue-500">
-        <img src={LoginImage} alt="login banner" className="mb-10" />
-        <h2 className="text-4xl my-4">Welcome back!</h2>
-        <p>Sign in to your account to continue</p>
+        <img src={LoginImage} alt="login banner" className="side-panel-content mb-10" />
+        <h2 className="side-panel-content text-4xl my-4">Welcome back!</h2>
+        <p className="side-panel-content">Sign in to your account to continue</p>
       </div>
       <div id="signup-side-panel" className="hidden flex-col w-1/2 h-full bg-blue-500">
-        <img src={SignupImage} alt="signup banner" className="mb-10" />
-        <h2 className="text-4xl my-4">Matchup</h2>
-        <p>Sign up to find your team.</p>
+        <img src={SignupImage} alt="signup banner" className="side-panel-content mb-10" />
+        <h2 className="side-panel-content text-4xl my-4">Matchup</h2>
+        <p className="side-panel-content">Sign up to find your team.</p>
       </div>
       <div className="w-1/2 h-full">
         <div className="flex flex-col justify-center items-center h-screen">
