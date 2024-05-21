@@ -6,7 +6,7 @@ function TennisPage() {
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [skillLevel, setSkillLevel] = useState('');
-    const [yearsOfExperience, setYearsOfExperience] = useState('');
+    const [experience, setExperience] = useState('');
     const [gender, setGender] = useState('');
     const [height, setHeight] = useState('');
 
@@ -17,7 +17,7 @@ function TennisPage() {
             name,
             age,
             skillLevel,
-            yearsOfExperience,
+            experience,
             gender,
             height
         });
@@ -51,8 +51,14 @@ function TennisPage() {
                         </select>
                     </label>
                     <label>
-                        Years of Experience:
-                        <input type="number" value={yearsOfExperience} onChange={(e) => setYearsOfExperience(e.target.value)} required />
+                        Experience:
+                        <select value={experience} onChange={(e) => setExperience(e.target.value)} required>
+                            <option value="">Select Experience Level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                            <option value="pro">Pro</option>
+                        </select>
                     </label>
                     <label>
                         Gender:
