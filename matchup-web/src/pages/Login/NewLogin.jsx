@@ -5,7 +5,7 @@ import "./NewLogin.css";
 import LoginImage from "../../assets/login-banner-img.png";
 import SignupImage from "../../assets/signup-banner-img.png";
 import useAuth from '../../hooks/useAuth';
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = 'http://4.211.104.91:3001/users';
@@ -15,13 +15,13 @@ export default function NewLogin() {
   const [isChecked, setIsChecked] = useState(false);
   const { setAuth } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
 
   const [loginUser, setLoginUser] = useState('');
   const [loginPwd, setLoginPwd] = useState('');
   const [loginErrMsg, setLoginErrMsg] = useState('');
   const [loginSuccess, setLoginSuccess] = useState(false);
 
+  const [registerName, setRegisterName] = useState('');
   const [registerUser, setRegisterUser] = useState('');
   const [registerPwd, setRegisterPwd] = useState('');
   const [validRegisterPwd, setValidRegisterPwd] = useState(false);
@@ -30,7 +30,7 @@ export default function NewLogin() {
   const registerPwdRef = useRef();
 
   useEffect(() => {
-    if (registerPwd.length != 0) {
+    if (registerPwd.length !== 0) {
       console.log('checking password');
       setValidRegisterPwd(PWD_REGEX.test(registerPwd));
     } else {
@@ -173,7 +173,7 @@ export default function NewLogin() {
                         <div className="form-group">
                           <div className="input-container">
                             <input
-                              type="email"
+                              type="text"
                               name="logemail"
                               className="form-style"
                               placeholder="Your Email or Username"
@@ -223,6 +223,8 @@ export default function NewLogin() {
                               placeholder="Your Full Name"
                               id="regname"
                               autoComplete="off"
+                              onChange={(e) => setRegisterName(e.target.value)}
+                              value={registerName}
                             />
                             <FontAwesomeIcon icon={faAt} className="input-icon uil uil-at icon-small" />
                           </div>

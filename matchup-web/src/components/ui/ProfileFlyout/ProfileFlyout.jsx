@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '../Button/Button';
 import useAuth from '../../../hooks/useAuth';
 
@@ -7,18 +7,17 @@ export default function ProfileFlyout({ ...props }) {
   const [isOpen, setIsOpen] = useState(false);
   const { auth, setAuth } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const fakeUser = {
     username: "John Doe",
-    name: "John",
-    surname: "Doe",
-    email: "fakeEmail@gmail.com",
-    phone: "1234567890",
+    email: "fakeEmail@gmail.com"
   }
 
   const logout = () => {
     localStorage.removeItem('auth');
     setAuth({});
+    navigate('/');
   }
 
   //read local storage for token
@@ -45,20 +44,8 @@ export default function ProfileFlyout({ ...props }) {
             </h2>
             <div className='flex flex-col divide-y-2 divide-highlight p-2'>
               <div className="flex gap-2">
-                <h3>Name:</h3>
-                <p>{fakeUser.name}</p>
-              </div>
-              <div className="flex gap-2">
-                <h3>Surname:</h3>
-                <p>{fakeUser.surname}</p>
-              </div>
-              <div className="flex gap-2">
                 <h3>Email:</h3>
                 <p>{auth.username}</p>
-              </div>
-              <div className="flex gap-2">
-                <h3>Phone:</h3>
-                <p>{fakeUser.phone}</p>
               </div>
             </div>
             <div className='flex flex-col gap-2 p-2'>
