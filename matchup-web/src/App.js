@@ -15,7 +15,8 @@ import BasketballPage from "./pages/sports/basketball/BasketballPage"
 import TennisPage from "./pages/sports/Tennis/TennisPage"
 import VolleyballPage from "./pages/sports/Volleyball/VolleyballPage"
 import NewLogin from "./pages/Login/NewLogin"
-
+import FieldSelection from "./pages/Fields/FieldSelection";
+import FieldsInformation from "./pages/Fields/FieldInformation";
 function App() {
   return (
     <div className="max-h-screen flex flex-col">
@@ -26,6 +27,10 @@ function App() {
         <Route path="/login" element={<NewLogin />} />
         <Route path="/loginBackup" element={<Login />} />
 
+
+        {/* Routes for Football Pitches */}
+        <Route path="/pitches" element={<FieldSelection />} />
+        <Route path="/football/pitch/:id" element={<FieldsInformation />} />
 
         {/* Protected routes */}
         <Route element={<PersistLogin />}>
