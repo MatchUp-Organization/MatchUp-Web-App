@@ -1,0 +1,33 @@
+.container {
+    padding: 50px 0;
+    background-color: #F5F6FA;
+    padding: 100px;
+}
+
+.header {
+    font-size: 44px;
+    margin-bottom: 60px;
+}
+
+.buttons {
+    display: flex;
+    gap: 70px;
+}
+
+.button {
+    padding: 15px 40px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.downloadButton {
+    background-color: #3F72AF;
+    color: white;
+}
+
+.openButton {
+    background-color: #F5F6FA;
+    color: #3F72AF;
+}

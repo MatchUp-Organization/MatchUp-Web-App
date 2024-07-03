@@ -1,0 +1,35 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+}
+
+.logoImage {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+}
+
+.menu a {
+    margin-left: 30px;
+    color: black;
+}
+
+.menu button {
+    color: white;
+    font-weight: bold;
+    margin-left: 100px;
+}
+
+.signupButton {
+    padding: 10px 30px;
+    border-radius: 10px;
+    background-color: #3F72AF;
+}

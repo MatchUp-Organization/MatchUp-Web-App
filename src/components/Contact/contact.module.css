@@ -1,0 +1,68 @@
+.container {
+    display: flex;
+    height: 500px;
+    overflow: hidden;
+}
+
+.textSection {
+    flex: 0.3;
+    display: flex;
+    background-color: #3F72AF;
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.textSection h2 {
+    color: #FFFF;
+    font-size: 35px;
+}
+
+.formSection {
+    flex: 0.7;
+    padding: 40px;
+    box-sizing: border-box;
+    color: #A6A6B2;
+    font-weight: bold;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.label,
+input,
+textarea {
+    width: 95%;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.formGroup input,
+.formGroup textarea {
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #3F72AF;
+}
+
+.formGroup textarea {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: #A6A6B2;
+    resize: none;
+}
+
+.formGroup textarea::placeholder {
+    font-size: 15px;
+    color: #A6A6B2;
+}
+
+.submitButton {
+}

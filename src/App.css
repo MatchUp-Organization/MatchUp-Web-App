@@ -1,0 +1,33 @@
+body, html {
+  margin: 0;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2, h3, a {
+  color: #333;
+}
+
+button {
+  background-color: #3F72AF;
+  color: white;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgb(31, 100, 255, 0.3);
+}
+
+button:hover {
+  box-shadow: 0 4px 10px rgb(31, 100, 255, 0.5);
+}
+
+a {
+  color: #3F72AF;
+  text-decoration: none;
+}

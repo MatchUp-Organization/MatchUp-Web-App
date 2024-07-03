@@ -1,0 +1,41 @@
+.container {
+    padding: 20px 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.title {
+    font-size: 40px;
+    /* Large text size for the section title */
+    margin-bottom: 20px;
+    /* Space below the title */
+}
+
+.separator {
+    width: 50px;
+    /* Length of the bar */
+    height: 5px;
+    /* Thickness of the bar */
+    background-color: #3F72AF;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.intro {
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    font-size: 18px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 16px;
+    /* Standard paragraph text size */
+    line-height: 1.5;
+    /* Line height for readability */
+    margin-bottom: 20px;
+    /* Space between paragraphs */
+}
