@@ -43,10 +43,6 @@ export default function Signup() {
   const [usersInUse, setUsersInUse] = useState([]);
 
   useEffect(() => {
-    userRef.current.focus();
-  }, [])
-
-  useEffect(() => {
     setValidName(USER_REGEX.test(user));
     if (usersInUse.includes(user)) {
       setValidName(false);
@@ -116,124 +112,34 @@ export default function Signup() {
   }
 
   return (
-    <div className="signup-container">
-      <div className="signup-side-panel">
-        <img src={BannerImage} alt="signup banner" className="mb-10" />
-        <h2 className="text-4xl my-4">Matchup</h2>
-        <p>Matchup is a platform for creating and managing sports events.</p>
-        <p>Sign up to create and join events.</p>
+    <div className="page-signup">
+      <div className='page-signup__left'>
+        <img src={BannerImage} alt="MatchUp Logo" className='page-signup-left__title' />
+        <p className='page-signup-left__title'>Welcome Aboard</p>
+        <p className='page-signup-left__text'>Just a couple of clicks and we start</p>
       </div>
-      <div className="signup-form">
-        <h1 className="text-4xl mb-3">Signup</h1>
-        {success ? (
-          <section>
-            <h2>Success!</h2>
-            <p>Your account has been created.</p>
-            <p>
-              <Link to="/login" state={{ from: location.state ? location.state.from : null }}>Click here to login</Link>
-            </p>
-          </section>
-        ) : (
-          <div>
-            <div ref={errRef} className="error-message">
-              <p>{errMsg}</p>
-            </div>
-            <form className="account-form" ref={formRef} onSubmit={handleSubmit}>
-              <div className="form-input-area">
-                <label htmlFor="username">
-                  Username:
-                  <CheckIcon style={validName ? { color: "green" } : { display: "none" }} />
-                  <CloseIcon style={validName || !user ? { display: "none" } : { color: "red" }} />
-                </label>
-                <input
-                  type="text"
-                  id="username"
-                  autoComplete="off"
-                  ref={userRef}
-                  onChange={(e) => setUser(e.target.value)}
-                  value={user}
-                  onFocus={() => setUserFocus(true)}
-                  onBlur={() => setUserFocus(false)}
-                  required
-                  aria-invalid={validName ? "false" : "true"}
-                  aria-describedby="uidnote"
-                />
-                <div id="uidnote" className={userFocus && user && !validName ? "instructions" : "hide"}>
-                  <InfoIcon />
-                  <p className="info-text-container">
-                    4 to 24 characters.<br />
-                    Must begin with a letter.<br />
-                    Letters, numbers, underscores, hyphens allowed. <br />
-                    Must not be in use.
-                  </p>
-                </div>
-              </div>
-
-              <div className="form-input-area">
-                <label htmlFor="password">
-                  Password:
-                  <CheckIcon style={validPwd ? { color: "green" } : { display: "none" }} />
-                  <CloseIcon style={validPwd || !pwd ? { display: "none" } : { color: "red" }} />
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  onChange={(e) => setPwd(e.target.value)}
-                  value={pwd}
-                  onFocus={() => setPwdFocus(true)}
-                  onBlur={() => setPwdFocus(false)}
-                  required
-                  aria-invalid={validPwd ? "false" : "true"}
-                  aria-describedby="pwdnote"
-                />
-                <div id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "hide"}>
-                  <InfoIcon />
-                  <p className="info-text-container">
-                    8 to 24 characters.<br />
-                    Must include uppercase and lowercase letters, a number and a special character.<br />
-                    Allowed special characters: ! @ # $ %
-                  </p>
-                </div>
-              </div>
-
-              <div className="form-input-area">
-                <label htmlFor="confirm_pwd">
-                  Confirm Password:
-                  <CheckIcon style={validMatch && matchPwd ? { color: "green" } : { display: "none" }} />
-                  <CloseIcon style={validMatch || !matchPwd ? { display: "none" } : { color: "red" }} />
-                </label>
-                <input
-                  type="password"
-                  id="confirm_pwd"
-                  onChange={(e) => setMatchPwd(e.target.value)}
-                  value={matchPwd}
-                  onFocus={() => setMatchFocus(true)}
-                  onBlur={() => setMatchFocus(false)}
-                  required
-                  aria-invalid={validMatch ? "false" : "true"}
-                  aria-describedby="confirmnote"
-                />
-                <div id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "hide"}>
-                  <InfoIcon />
-                  <p className="info-text-container">
-                    Must match the first password input field.
-                  </p>
-                </div>
-              </div>
-              <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
-            </form>
-            <div className="account-feature-swapper">
-              Already have an account?
-              <span className="line">
-                <Link to="/login" state={{ from: location.state ? location.state.from : null }}>
-                  <Button variant="default" size="default">
-                    Click Here
-                  </Button>
-                </Link>
-              </span>
-            </div>
-          </div>
-        )}
+      <div className='page-signup__right'>
+        <p className='page-signup-right__title'>Create Account</p>
+        <div className='page-signup-right__input'>
+          <p className='page-signup-right-input__title'>Username</p>
+          <input className='page-signup-right-input__input' type="text" placeholder='John Doe' />
+        </div>
+        <div className='page-signup-right__input'>
+          <p className='page-signup-right-input__title'>Email</p>
+          <input className='page-signup-right-input__input' type="text" placeholder='exemple@gmail.com' />
+        </div>
+        <div className='page-signup-right__input'>
+          <p className='page-signup-right-input__title'>Password</p>
+          <input className='page-signup-right-input__input' type="password" placeholder='*********' />
+        </div>
+        <div className='page-signup-right__input'>
+          <p className='page-signup-right-input__title'>Confirm Password</p>
+          <input className='page-signup-right-input__input' type="password" placeholder='*********' />
+        </div>
+        <Link to="/index" className='page-signup-right__button'>
+          <p className='page-signup-right-button__text'>Sign In</p>
+        </Link>
+        <p className='page-signup-right__noaccount'>Have an account?<Link to="/login" className='page-signup-right-noaccount__link'> Sign In </Link></p>
       </div>
     </div>
   )

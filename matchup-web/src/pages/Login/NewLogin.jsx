@@ -147,7 +147,7 @@ export default function NewLogin() {
       <div id="login-side-panel" className="flex flex-col w-1/2 h-full bg-blue-500">
         <img src={LoginImage} alt="login banner" className="side-panel-content mb-10" />
         <h2 className="side-panel-content text-4xl my-4">Welcome back!</h2>
-        <p className="side-panel-content">Sign in to your account to continue</p>
+        <p className="side-panel-content">Sign in to your account to fdsfdsfdscontinue</p>
       </div>
       <div id="signup-side-panel" className="hidden flex-col w-1/2 h-full bg-blue-500">
         <img src={SignupImage} alt="signup banner" className="side-panel-content mb-10" />

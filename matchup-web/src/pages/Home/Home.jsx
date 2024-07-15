@@ -7,6 +7,8 @@ import GetStartedImg from "../../assets/home-getstarted.png";
 import JoinUsSVG from "../../assets/home-joinus.svg";
 import TellUsSVG from "../../assets/home-tellus.svg";
 import PlayWithSVG from "../../assets/home-playwith.svg";
+import InstagramSVG from "../../assets/instagram.svg";
+import LinkedInSVG from "../../assets/linkedin.svg";
 import '@fontsource/lato';
 import PollImg from "../../assets/trust.png";
 import BirdImg from "../../assets/heureux.png";
@@ -82,6 +84,91 @@ export default function Home() {
                     </div>
                     <div className="section-joinus__button2">
                         <p className="section-joinus__buttontext2">Open in browser</p>
+                    </div>
+                </div>
+            </section>
+            {/*  */}
+            <section className="section-aboutus">
+                <p className="section-aboutus__title">About us</p>
+                <div className="section-aboutus__div"/>
+                <p className="section-aboutus__text">Do you dream of playing soccer or other sports near you but don’t know where to find available pitches or who to play with ? MatchUp is the mobile application for you ! With MatchUp, you can quickly and easily discover nearby sports fields and organize matches with other enthusiasts like yourself.</p>
+                <p className="section-aboutus__subtitle">Find nearby fields</p>
+                <p className="section-aboutus__text">Thanks to our intuitive geolocation, MatchUp lets you instantly locate soccer fields, basketball courts, tennis courts and much more, all within walking distance of your home. No more hours wasted looking for a place to play: with MatchUp, the best sports grounds are within easy reach.</p>
+                <p className="section-aboutus__subtitle">Organize and join matches</p>
+                <p className="section-aboutus__text">Whether you want to organize a match between friends or join an already scheduled game, MatchUp makes it easy to connect players. Create your sporting event in just a few clicks, invite your friends, or join an existing game. You can even see the level of players for balanced, fun matches.</p>
+                <p className="section-aboutus__subtitle">Connect with a community of enthusiasts</p>
+                <p className="section-aboutus__text">MatchUp isn't just a tracking application: it's also a community of sports enthusiasts. Share experiences, exchange tips and find regular playing partners. Our platform fosters encounters and friendships around sport.</p>
+            </section>
+            {/*  */}
+            <section className="section-question">
+                <div className="section-question__left">
+                    <p className="section-question-left_text">Got a question for us?</p>
+                    <p className="section-question-left_text">Send us an email using our contact form!</p>
+                </div>
+                <div className="section-question__right">
+                    <div className="global__flex-between-row">
+                        <div className="section-question-right__input">
+                            <p className="section-question-right-input__title">First Name</p>
+                            <input className="section-question-right-input__input" type="text" />
+                        </div>
+                        <div className="section-question-right__space"/>
+                        <div className="section-question-right__input">
+                            <p className="section-question-right-input__title">Last Name</p>
+                            <input className="section-question-right-input__input" type="text" />
+                        </div>
+                    </div>
+                    <div className="global__flex-between-row">
+                        <div className="section-question-right__input">
+                            <p className="section-question-right-input__title">Mail</p>
+                            <input className="section-question-right-input__input" type="text" />
+                        </div>
+                        <div className="section-question-right__space"/>
+                        <div className="section-question-right__input">
+                            <p className="section-question-right-input__title">Phone</p>
+                            <input className="section-question-right-input__input" type="text" />
+                        </div>
+                    </div>
+                    <div className="global__flex-between-row">
+                        <div className="section-question-right_bottom__input">
+                            <p className="section-question-right-input__title">Message</p>
+                            <input className="section-question-right-input__input" type="text" />
+                        </div>
+                    </div>
+                    <div className="section-aboutus-right__button">
+                        <p className="section-aboutus-right-button__text">Send Message</p>
+                    </div>
+                </div>
+            </section>
+            {/*  */}
+            <section className="section-footer">
+                <div className="section-footer__left">
+                    <p className="section-footer-left__title">Need help with anything?</p>
+                    <div className="section-footer-left__icons">
+                        <img src={InstagramSVG} alt="MatchUp Logo" className="section-footer-left__icon" />
+                        <img src={LinkedInSVG} alt="MatchUp Logo" className="section-footer-left__icon" />
+                    </div>
+                </div>
+                <div className="section-footer__right">
+                    <div className="section-footer-right__column">
+                        <p className="section-footer-right-column__title">Home</p>
+                        <p className="section-footer-right-column__text">Why we mater</p>
+                        <p className="section-footer-right-column__text">How how system works</p>
+                        <p className="section-footer-right-column__text">Pricing</p>
+                    </div>
+                    <div className="section-footer-right__column">
+                        <p className="section-footer-right-column__title">Company</p>
+                        <p className="section-footer-right-column__text">About</p>
+                        <p className="section-footer-right-column__text">Blog</p>
+                    </div>
+                    <div className="section-footer-right__column">
+                        <p className="section-footer-right-column__title">Legal</p>
+                        <p className="section-footer-right-column__text">Terms & Conditions</p>
+                        <p className="section-footer-right-column__text">Privacy & Policy</p>
+                        <p className="section-footer-right-column__text">Contact</p>
+                    </div>
+                    <div className="section-footer-right__column">
+                        <p className="section-footer-right-column__title">Help</p>
+                        <p className="section-footer-right-column__text">FAQs</p>
                     </div>
                 </div>
             </section>

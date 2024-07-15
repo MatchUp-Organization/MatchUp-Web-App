@@ -1,49 +1,64 @@
-import { useRef, useState, useEffect } from "react";
-import useAuth from "../../hooks/useAuth";
+import { React, useState, useEffect, useRef } from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import "./Login.css";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Button } from "../../components/ui/Button/Button";
-import BannerImage from "../../assets/login-banner-img.png";
+import LoginImage from "../../assets/login-banner-img.png";
+import useAuth from '../../hooks/useAuth';
+import { Link, useNavigate } from "react-router-dom";
+import '@fontsource/lato';
 
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const REGISTER_URL = 'http://4.211.104.91:3001/users';
 const LOGIN_URL = 'http://4.211.104.91:3001/users/new-token';
 
-export default function Login() {
+export default function NewLogin() {
+  const [isChecked, setIsChecked] = useState(false);
   const { setAuth } = useAuth();
-
   const navigate = useNavigate();
-  const location = useLocation();
-  var from;
-  if (location.state?.from === null) {
-    from = "/";
-  } else {
-    from = location.state?.from.pathname || "/";
-  }
 
-  const userRef = useRef();
-  const errRef = useRef();
+  const [loginUser, setLoginUser] = useState('');
+  const [loginPwd, setLoginPwd] = useState('');
+  const [loginErrMsg, setLoginErrMsg] = useState('');
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
-  const [user, setUser] = useState('');
-
-  const [pwd, setPwd] = useState('');
-
-  const [errMsg, setErrMsg] = useState('');
-  const [success, setSuccess] = useState(false);
+  const [registerName, setRegisterName] = useState('');
+  const [registerUser, setRegisterUser] = useState('');
+  const [registerPwd, setRegisterPwd] = useState('');
+  const [validRegisterPwd, setValidRegisterPwd] = useState(false);
+  const [registerErrMsg, setRegisterErrMsg] = useState('');
+  const [registerSuccess, setRegisterSuccess] = useState(false);
+  const registerPwdRef = useRef();
 
   useEffect(() => {
-    userRef.current.focus();
-  }, [])
+    if (registerPwd.length !== 0) {
+      console.log('checking password');
+      setValidRegisterPwd(PWD_REGEX.test(registerPwd));
+    } else {
+      setValidRegisterPwd(true);
+    }
+  }, [registerPwd])
 
+  const handleCheckboxChange = (event) => {
+    setIsChecked(event.target.checked);
+    if (event.target.checked) {
+      document.getElementById('login-side-panel').classList.remove('flex');
+      document.getElementById('login-side-panel').classList.add('hidden');
+      document.getElementById('signup-side-panel').classList.remove('hidden');
+      document.getElementById('signup-side-panel').classList.add('flex');
+    } else {
+      document.getElementById('login-side-panel').classList.remove('hidden');
+      document.getElementById('login-side-panel').classList.add('flex');
+      document.getElementById('signup-side-panel').classList.remove('flex');
+      document.getElementById('signup-side-panel').classList.add('hidden');
+    }
+  };
 
-  useEffect(() => {
-    setErrMsg('');
-  }, [user, pwd])
-
-  const handleSubmit = async (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const url = LOGIN_URL;
     const data = {
-      username: user,
-      password: pwd
+      username: loginUser,
+      password: loginPwd
     };
     try {
       const response = await fetch(url, {
@@ -55,95 +70,100 @@ export default function Login() {
       });
       if (response.ok) {
         const responseData = await response.json();
-        setAuth({ token: responseData.token, username: user });
-        window.localStorage.setItem('auth', JSON.stringify({ token: responseData.token, username: user }));
-        setSuccess(true);
-        // clear input fields
-        setUser('');
-        setPwd('');
-        navigate("/index", { replace: true });
+        setAuth({ token: responseData.token, username: loginUser });
+        window.localStorage.setItem('auth', JSON.stringify({ token: responseData.token, username: loginUser }));
+        setLoginSuccess(true);
+        setLoginUser('');
+        setLoginPwd('');
+        navigate('/index', { replace: true });
       } else {
-        console.error('Request failed with status:', response.status);
+        console.error('Login failed with status:', response.status);
         if (response.status === 401) {
-          setErrMsg('Wrong username or password');
-          setSuccess(false);
+          setLoginErrMsg('Invalid username or password');
+          setLoginSuccess(false);
         } else {
-          setErrMsg('Login failed');
-          setSuccess(false);
+          setLoginErrMsg('Login failed');
+          setLoginSuccess(false);
         }
-        errRef.current.focus();
       }
     } catch (error) {
       if (!error?.response) {
-        setErrMsg('No Server Response');
-        console.error('No Server Response:', error);
+        setLoginErrMsg('Network error');
+        console.error('Network error');
       } else {
-        setErrMsg("Login failed");
-        console.error('Error:', error);
+        console.error(error);
       }
-      errRef.current.focus();
     }
-  }
+  };
+
+  const handleRegisterSubmit = async (e) => {
+    e.preventDefault();
+    const url = REGISTER_URL;
+    const v2 = PWD_REGEX.test(registerPwd);
+    if (!v2) {
+      setRegisterErrMsg('Invalid Entry');
+      return;
+    }
+    const data = {
+      username: registerUser,
+      password: registerPwd
+    };
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        const responseData = await response.json();
+        setRegisterSuccess(true);
+        window.localStorage.setItem('auth', JSON.stringify({ token: responseData.token, username: registerUser }));
+        setRegisterUser('');
+        setRegisterPwd('');
+        navigate('/index', { replace: true });
+      } else {
+        console.error('Registration failed with status:', response.status);
+        if (response.status === 400) {
+          setRegisterErrMsg('Username already exists');
+        } else {
+          setRegisterErrMsg('Registration failed');
+        }
+        setRegisterSuccess(false);
+      }
+    } catch (error) {
+      if (!error?.response) {
+        setRegisterErrMsg('Network error');
+        console.error('Network error');
+      } else {
+        console.error(error);
+      }
+    }
+  };
 
   return (
-    <div className="login-container">
-      <div className="login-side-panel">
-        <img src={BannerImage} alt="login banner" className="mb-10" />
-        <h2 className="text-4xl my-4">Welcome back!</h2>
-        <p>Sign in to your account to continue</p>
+    <div className="page-login">
+      <div className='page-login__left'>
+        <img src={LoginImage} alt="MatchUp Logo" className='page-login-left__title' />
+        <p className='page-login-left__title'>Welcome Back</p>
+        <p className='page-login-left__text'>Just a couple of clicks and we start</p>
       </div>
-      <div className="login-form">
-        <h1 className="text-4xl">Login</h1>
-        <div>
-          <div ref={errRef} className="error-message">
-            <p>{errMsg}</p>
-          </div>
-          <form className="account-form" onSubmit={handleSubmit}>
-            <div className="form-input-area">
-              <label htmlFor="username">
-                Username:
-              </label>
-              <input
-                type="text"
-                id="username"
-                autoComplete="off"
-                ref={userRef}
-                onChange={(e) => setUser(e.target.value)}
-                value={user}
-                required
-                aria-describedby="uidnote"
-              />
-            </div>
-
-            <div className="form-input-area">
-              <label htmlFor="password">
-                Password:
-              </label>
-              <input
-                type="password"
-                id="password"
-                onChange={(e) => setPwd(e.target.value)}
-                value={pwd}
-                required
-                aria-describedby="pwdnote"
-              />
-            </div>
-
-            <button>Sign In</button>
-          </form>
-
-          <div className="account-feature-swapper">
-            Don't have an account?
-            <span className="line">
-              <Link to="/signup" state={{ from: location.state ? location.state.from : null }}>
-                <Button variant="default" size="default">
-                  Create an Account
-                </Button>
-              </Link>
-            </span>
-          </div>
+      <div className='page-login__right'>
+        <p className='page-login-right__title'>Sign In</p>
+        <div className='page-login-right__input'>
+          <p className='page-login-right-input__title'>Email</p>
+          <input className='page-login-right-input__input' type="text" placeholder='exemple@gmail.com' />
         </div>
+        <div className='page-login-right__input'>
+          <p className='page-login-right-input__title'>Password</p>
+          <input className='page-login-right-input__input' type="password" placeholder='*********' />
+        </div>
+        <Link to="/index" className='page-login-right__button'>
+          <p className='page-login-right-button__text'>Sign In</p>
+        </Link>
+        <p className='page-login-right__noaccount'>Don’t have an account?<Link to="/signup" className='page-login-right-noaccount__link'> Sign Up </Link></p>
       </div>
     </div>
-  )
+  );
 }
