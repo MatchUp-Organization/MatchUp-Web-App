@@ -95,6 +95,8 @@
 .dashboard-rightside {
     width: 100%;
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .dashboard-rightside_header {
@@ -142,3 +144,10 @@
 }
 
 /*  */
+
+.dashboard-rightside_body {
+    background-color: white;
+    min-height: auto;
+    width: 100%;
+    height: 100%;
+}

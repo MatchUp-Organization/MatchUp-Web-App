@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "@fontsource/lato": "^5.0.21"
+    "@fontsource/lato": "^5.0.21",
+    "chart.js": "^4.4.3",
+    "react-chartjs-2": "^5.2.0"
   }
 }
