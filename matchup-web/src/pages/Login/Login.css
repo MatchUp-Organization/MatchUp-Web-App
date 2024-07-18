@@ -69,6 +69,14 @@
     margin-bottom: 50px;
 }
 
+.page-login-right__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .page-login-right__input {
     width: 70%;
     margin-bottom: 30px;

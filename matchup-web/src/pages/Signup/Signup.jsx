@@ -1,10 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import CloseIcon from '@mui/icons-material/Close';
-import CheckIcon from '@mui/icons-material/Check';
-import InfoIcon from '@mui/icons-material/Info';
 import "./Signup.css";
-import { Button } from "../../components/ui/Button/Button";
 import BannerImage from "../../assets/signup-banner-img.png";
 
 const USER_REGEX = /^[A-z0-9-_]{4,23}$/;
@@ -87,7 +83,7 @@ export default function Signup() {
         setUser('');
         setPwd('');
         setMatchPwd('');
-        navigate(from, { replace: true });
+        navigate("/index", { replace: true });
       } else {
         console.error('Request failed with status:', response.status);
         if (response.status === 400) {
@@ -120,26 +116,60 @@ export default function Signup() {
       </div>
       <div className='page-signup__right'>
         <p className='page-signup-right__title'>Create Account</p>
-        <div className='page-signup-right__input'>
-          <p className='page-signup-right-input__title'>Username</p>
-          <input className='page-signup-right-input__input' type="text" placeholder='John Doe' />
-        </div>
-        <div className='page-signup-right__input'>
-          <p className='page-signup-right-input__title'>Email</p>
-          <input className='page-signup-right-input__input' type="text" placeholder='exemple@gmail.com' />
-        </div>
-        <div className='page-signup-right__input'>
-          <p className='page-signup-right-input__title'>Password</p>
-          <input className='page-signup-right-input__input' type="password" placeholder='*********' />
-        </div>
-        <div className='page-signup-right__input'>
-          <p className='page-signup-right-input__title'>Confirm Password</p>
-          <input className='page-signup-right-input__input' type="password" placeholder='*********' />
-        </div>
-        <Link to="/index" className='page-signup-right__button'>
-          <p className='page-signup-right-button__text'>Sign In</p>
-        </Link>
-        <p className='page-signup-right__noaccount'>Have an account?<Link to="/login" className='page-signup-right-noaccount__link'> Sign In </Link></p>
+        <form ref={formRef} className='page-signup-right__form' onSubmit={handleSubmit}>
+          <div className='page-signup-right__input'>
+            <p className='page-signup-right-input__title'>Username</p>
+            <input
+              type="text"
+              className='page-signup-right-input__input'
+              placeholder='John Doe'
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+              onFocus={() => setUserFocus(true)}
+              onBlur={() => setUserFocus(false)}
+              ref={userRef}
+            />
+          </div>
+          <div className='page-signup-right__input'>
+            <p className='page-signup-right-input__title'>Email</p>
+            <input
+              type="email"
+              className='page-signup-right-input__input'
+              placeholder='exemple@gmail.com'
+            />
+          </div>
+          <div className='page-signup-right__input'>
+            <p className='page-signup-right-input__title'>Password</p>
+            <input
+              type="password"
+              className='page-signup-right-input__input'
+              placeholder='*********'
+              value={pwd}
+              onChange={(e) => setPwd(e.target.value)}
+              onFocus={() => setPwdFocus(true)}
+              onBlur={() => setPwdFocus(false)}
+            />
+          </div>
+          <div className='page-signup-right__input'>
+            <p className='page-signup-right-input__title'>Confirm Password</p>
+            <input
+              type="password"
+              className='page-signup-right-input__input'
+              placeholder='*********'
+              value={matchPwd}
+              onChange={(e) => setMatchPwd(e.target.value)}
+              onFocus={() => setMatchFocus(true)}
+              onBlur={() => setMatchFocus(false)}
+            />
+          </div>
+          <button type="submit" className='page-signup-right__button'>
+            <p className='page-signup-right-button__text'>Sign Up</p>
+          </button>
+          <p className='page-signup-right__noaccount'>
+            Have an account?
+            <Link to="/login" className='page-signup-right-noaccount__link'> Sign In </Link>
+          </p>
+        </form>
       </div>
     </div>
   )

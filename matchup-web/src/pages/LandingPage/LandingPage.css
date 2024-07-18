@@ -39,10 +39,6 @@ section {
     margin-bottom: 100px;
 }
 
-.home-header__left {
-
-}
-
 .home-header-left__logo {
     width: 75px;
     margin-right: 20px;
@@ -58,6 +54,10 @@ section {
     color: #000022;
     font-size: 18px;
     margin: 0px 20px 0px 20px;
+}
+
+.home-header__button:hover {
+    color: #3F72AF;
 }
 
 .home-header__signup-button {
@@ -125,10 +125,6 @@ section {
     color: white;
     font-size: 14px;
     font-weight: bold;
-}
-
-.section-getstarted__img {
-
 }
 
 /*  */
@@ -229,6 +225,7 @@ section {
     background-color: #3F72AF;
     border-radius: 10px;
     box-shadow: 1px 4px 10px 0px #1f62ff43;
+    cursor: not-allowed;
 }
 
 .section-joinus__buttontext1 {
@@ -394,6 +391,7 @@ section {
     padding: 85px 85px;
     width: 500px;
 }
+
 .section-footer-left__title {
     margin: 0;
     font-size: 48px;
@@ -411,6 +409,7 @@ section {
 
 .section-footer-left__icon {
     margin-right: 20px;
+    cursor: not-allowed;
 }
 
 .section-footer__right {
@@ -443,4 +442,5 @@ section {
     text-align: start;
     line-height: normal;
     margin-bottom: 40px;
+    cursor: not-allowed;
 }

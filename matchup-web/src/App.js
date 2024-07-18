@@ -1,6 +1,6 @@
 import "./App.css"
 import { useState } from "react"
-import Home from "./pages/Home"
+import LandingPage from "./pages/LandingPage/LandingPage"
 import About from "./pages/About"
 import Account from "./pages/Account"
 import { Route, Routes } from "react-router-dom"
@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="max-h-screen flex flex-col">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />

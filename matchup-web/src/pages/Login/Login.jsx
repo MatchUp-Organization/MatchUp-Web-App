@@ -1,6 +1,4 @@
 import { React, useState, useEffect, useRef } from 'react';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import "./Login.css";
 import LoginImage from "../../assets/login-banner-img.png";
 import useAuth from '../../hooks/useAuth';
@@ -12,9 +10,9 @@ const REGISTER_URL = 'http://4.211.104.91:3001/users';
 const LOGIN_URL = 'http://4.211.104.91:3001/users/new-token';
 
 export default function NewLogin() {
-  const [isChecked, setIsChecked] = useState(false);
   const { setAuth } = useAuth();
   const navigate = useNavigate();
+  const formRef = useRef();
 
   const [loginUser, setLoginUser] = useState('');
   const [loginPwd, setLoginPwd] = useState('');
@@ -36,22 +34,8 @@ export default function NewLogin() {
     } else {
       setValidRegisterPwd(true);
     }
-  }, [registerPwd])
+  }, [registerPwd]);
 
-  const handleCheckboxChange = (event) => {
-    setIsChecked(event.target.checked);
-    if (event.target.checked) {
-      document.getElementById('login-side-panel').classList.remove('flex');
-      document.getElementById('login-side-panel').classList.add('hidden');
-      document.getElementById('signup-side-panel').classList.remove('hidden');
-      document.getElementById('signup-side-panel').classList.add('flex');
-    } else {
-      document.getElementById('login-side-panel').classList.remove('hidden');
-      document.getElementById('login-side-panel').classList.add('flex');
-      document.getElementById('signup-side-panel').classList.remove('flex');
-      document.getElementById('signup-side-panel').classList.add('hidden');
-    }
-  };
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -96,52 +80,6 @@ export default function NewLogin() {
     }
   };
 
-  const handleRegisterSubmit = async (e) => {
-    e.preventDefault();
-    const url = REGISTER_URL;
-    const v2 = PWD_REGEX.test(registerPwd);
-    if (!v2) {
-      setRegisterErrMsg('Invalid Entry');
-      return;
-    }
-    const data = {
-      username: registerUser,
-      password: registerPwd
-    };
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      if (response.ok) {
-        const responseData = await response.json();
-        setRegisterSuccess(true);
-        window.localStorage.setItem('auth', JSON.stringify({ token: responseData.token, username: registerUser }));
-        setRegisterUser('');
-        setRegisterPwd('');
-        navigate('/index', { replace: true });
-      } else {
-        console.error('Registration failed with status:', response.status);
-        if (response.status === 400) {
-          setRegisterErrMsg('Username already exists');
-        } else {
-          setRegisterErrMsg('Registration failed');
-        }
-        setRegisterSuccess(false);
-      }
-    } catch (error) {
-      if (!error?.response) {
-        setRegisterErrMsg('Network error');
-        console.error('Network error');
-      } else {
-        console.error(error);
-      }
-    }
-  };
-
   return (
     <div className="page-login">
       <div className='page-login__left'>
@@ -151,17 +89,31 @@ export default function NewLogin() {
       </div>
       <div className='page-login__right'>
         <p className='page-login-right__title'>Sign In</p>
-        <div className='page-login-right__input'>
-          <p className='page-login-right-input__title'>Email</p>
-          <input className='page-login-right-input__input' type="text" placeholder='exemple@gmail.com' />
-        </div>
-        <div className='page-login-right__input'>
-          <p className='page-login-right-input__title'>Password</p>
-          <input className='page-login-right-input__input' type="password" placeholder='*********' />
-        </div>
-        <Link to="/index" className='page-login-right__button'>
-          <p className='page-login-right-button__text'>Sign In</p>
-        </Link>
+        <form ref={formRef} className='page-login-right__form' onSubmit={handleLoginSubmit}>
+          <div className='page-login-right__input'>
+            <p className='page-login-right-input__title'>Email</p>
+            <input
+              type="text"
+              className='page-login-right-input__input'
+              placeholder='exemple@gmail.com'
+              value={loginUser}
+              onChange={(e) => setLoginUser(e.target.value)}
+            />
+          </div>
+          <div className='page-login-right__input'>
+            <p className='page-login-right-input__title'>Password</p>
+            <input
+              type="password"
+              className='page-login-right-input__input'
+              placeholder='*********'
+              value={loginPwd}
+              onChange={(e) => setLoginPwd(e.target.value)}
+            />
+          </div>
+          <button type="submit" className='page-signup-right__button'>
+            <p className='page-signup-right-button__text'>Sign In</p>
+          </button>
+        </form>
         <p className='page-login-right__noaccount'>Don’t have an account?<Link to="/signup" className='page-login-right-noaccount__link'> Sign Up </Link></p>
       </div>
     </div>
