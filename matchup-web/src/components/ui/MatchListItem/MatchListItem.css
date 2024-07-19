@@ -1,0 +1,35 @@
+.matchlistitem-container {
+    width: 420px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.matchlistitem-container p {
+    margin: 0;
+}
+
+.matchlistitem-header {
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.matchlistitem-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.matchlistitem-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.matchlistitem-content-left {
+    display: flex;
+    flex-direction: column;
+}
