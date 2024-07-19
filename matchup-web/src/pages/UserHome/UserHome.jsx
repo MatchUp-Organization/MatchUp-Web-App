@@ -1,9 +1,6 @@
 import "./UserHome.css"; // Import your CSS file here
-import PageHeader from "../../layouts/PageHeader";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTwitter, faInstagram, faFacebook } from "@fortawesome/free-brands-svg-icons";
 import MatchUpLogo from "../../assets/MatchUp-Logo.svg";
-import HomeLogo from "../../assets/dashboard-home.svg";
+import HomeLogo from "../../assets/home-icon.svg";
 import CalendarLogo from "../../assets/dashboard-calendar.svg";
 import SportsLogo from "../../assets/dashboard-sports.svg";
 import SettingsLogo from "../../assets/dashboard-settings.svg";
@@ -40,26 +37,35 @@ export default function UserHome() {
           <p className="dashboard-leftside-top_title">MatchUp</p>
         </div>
         <div className="dashboard-leftside_content">
-          <div 
-            className="dashboard-leftside-content_navbutton" 
+          <div
+            className={`dashboard-leftside-content_navbutton ${activeComponent === 'Home' ? 'navbutton-active' : ''}`}
             onClick={() => setActiveComponent('Home')}
           >
-            <img src={HomeLogo} alt="Home Logo" className="dashboard-leftside-content-navbutton_image" />
-            <p className="dashboard-leftside-content-navbutton_text">Home</p>
+            <div className="dashboard-leftside-content-navbutton__selector"></div>
+            <div className="dashboard-leftside-content-navbutton__content">
+              <img src={HomeLogo} alt="Home Logo" className="dashboard-leftside-content-navbutton_image" />
+              <p className="dashboard-leftside-content-navbutton_text">Home</p>
+            </div>
           </div>
-          <div 
-            className="dashboard-leftside-content_navbutton" 
+          <div
+            className={`dashboard-leftside-content_navbutton ${activeComponent === 'Calendar' ? 'navbutton-active' : ''}`}
             onClick={() => setActiveComponent('Calendar')}
           >
-            <img src={CalendarLogo} alt="Calendar Logo" className="dashboard-leftside-content-navbutton_image" />
-            <p className="dashboard-leftside-content-navbutton_text">Calendar</p>
+            <div className="dashboard-leftside-content-navbutton__selector"></div>
+            <div className="dashboard-leftside-content-navbutton__content">
+              <img src={CalendarLogo} alt="Calendar Logo" className="dashboard-leftside-content-navbutton_image" />
+              <p className="dashboard-leftside-content-navbutton_text">Calendar</p>
+            </div>
           </div>
-          <div 
-            className="dashboard-leftside-content_navbutton" 
+          <div
+            className={`dashboard-leftside-content_navbutton ${activeComponent === 'Sports' ? 'navbutton-active' : ''}`}
             onClick={() => setActiveComponent('Sports')}
           >
-            <img src={SportsLogo} alt="Sports Logo" className="dashboard-leftside-content-navbutton_image" />
-            <p className="dashboard-leftside-content-navbutton_text">Sports</p>
+            <div className="dashboard-leftside-content-navbutton__selector"></div>
+            <div className="dashboard-leftside-content-navbutton__content">
+              <img src={SportsLogo} alt="Sports Logo" className="dashboard-leftside-content-navbutton_image" />
+              <p className="dashboard-leftside-content-navbutton_text">Sports</p>
+            </div>
           </div>
         </div>
         <div className="dashboard-leftside_bottom">
