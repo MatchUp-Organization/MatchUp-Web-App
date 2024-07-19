@@ -1,0 +1,22 @@
+.missingpage {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+}
+
+.missingpage-image {
+
+}
+
+.missingpage-text {
+    margin-top: 20px;
+    color: #AAB2C8;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
