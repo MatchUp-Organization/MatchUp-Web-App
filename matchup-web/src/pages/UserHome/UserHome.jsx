@@ -11,6 +11,8 @@ import { useState } from "react";
 import SubHome from "./subpages/SubHome";
 import SubCalendar from "./subpages/SubCalendar";
 import SubSports from "./subpages/SubSports";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+
 
 export default function UserHome() {
 
@@ -69,10 +71,10 @@ export default function UserHome() {
           </div>
         </div>
         <div className="dashboard-leftside_bottom">
-          <div className="dashboard-leftside-bottom_settings">
+          <Link to="/settings" className="dashboard-leftside-bottom_settings">
             <img src={SettingsLogo} alt="Settings Logo" className="dashboard-leftside-bottom_image" />
             <p className="dashboard-leftside-bottom_text">Settings</p>
-          </div>
+          </Link>
         </div>
       </section>
       <section className="dashboard-rightside">
@@ -81,10 +83,10 @@ export default function UserHome() {
             <img src={SearchLogo} alt="Search Logo" className="dashboard-rightside-header-input_logo" />
             <input className="dashboard-rightside-header-input_input" type="text" placeholder="Search" />
           </div>
-          <div className="dashboard-rightside-header_profile">
+          <Link to="/profile" className="dashboard-rightside-header_profile">
             <img src={NoProfilePictureLogo} alt="Profile Logo" className="dashboard-rightside-header_picture" />
             <img src={ProfileLogo} alt="Profile Logo" className="dashboard-rightside-header_button" />
-          </div>
+          </Link>
         </header>
         <div className="dashboard-rightside_body">
           {renderComponent()}
