@@ -119,17 +119,84 @@
     background-color: #2b4a8e;
 }
 
-.AllSportsPage-sport-page {
-    padding: 0 40px;
-    height: 88vh;
+/* Subsports section */
+
+.sport-detail {
+    padding: 20px;
+}
+
+.back-button {
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.matchlist-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    height: 70vh;
     overflow-y: auto;
+    padding-top: 10px;
+}
+
+.matchlistitem-container {
+    background: #fff;
+    /* border: 1px solid #ddd;
+    border-radius: 8px; */
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.matchlistitem-container:hover {
+    transform: scale(1.05);
+}
+
+.matchlistitem-header {
+    position: relative;
+    padding-top: 56.25%;
+    overflow: hidden;
+}
+
+.matchlistitem-header_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.matchlistitem-content {
+    padding: 10px;
+}
+
+.matchlistitem-content-left_title {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.matchlistitem-content-left_location,
+.matchlistitem-content-right_date,
+.matchlistitem-content-right_users {
+    display: flex;
+    align-items: center;
+}
+
+.matchlistitem-content-left_location-image,
+.matchlistitem-content-right_users-image {
+    margin-right: 5px;
+}
+
+.matchlistitem-content-left_location-text,
+.matchlistitem-content-right_users-text {
+    margin: 0;
 }
 
 .AllSportsPage-sport-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .AllSportsPage-sport-page h2 {
@@ -145,10 +212,4 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.2em;
-}
-
-.AllSportsPage-sport-matches {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
 }

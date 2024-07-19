@@ -9,245 +9,78 @@ import DefaultField from '../../../assets/default-field.png';
 import StadeDeFrance from '../../../assets/stade-de-france.png';
 import BritainField from '../../../assets/britain-field.png';
 
+const sportsData = {
+  Basketball: [
+    { img_url: './basketball1.png', title: 'Rucker Park', location: 'New York City, USA', date: '2024-07-20', users: '10' },
+    { img_url: './basketball2.png', title: 'Venice Beach Courts', location: 'Los Angeles, USA', date: '2024-07-21', users: '12' },
+    { img_url: './basketball3.png', title: 'Maccabi Tel Aviv Arena', location: 'Tel Aviv, Israel', date: '2024-07-22', users: '8 ' },
+    { img_url: './basketball4.png', title: 'Cairns Esplanade', location: 'Cairns, Australia', date: '2024-07-23', users: '15 ' },
+    { img_url: './basketball5.png', title: 'Shanghai Outdoor Courts', location: 'Shanghai, China', date: '2024-07-24', users: '9 ' },
+    { img_url: './basketball6.png', title: 'Hoop Dreams Tokyo', location: 'Tokyo, Japan', date: '2024-07-25', users: '11 ' },
+    { img_url: './basketball7.png', title: 'Paris Duperré Court', location: 'Paris, France', date: '2024-07-26', users: '13 ' },
+    { img_url: './basketball8.png', title: 'Berlin Mauerpark Courts', location: 'Berlin, Germany', date: '2024-07-27', users: '14 ' },
+  ],
+  Football: [
+    { img_url: './football1.png', title: 'Camp Nou', location: 'Barcelona, Spain', date: '2024-07-20', users: '10/15' },
+    { img_url: './football2.png', title: 'Old Trafford', location: 'Manchester, England', date: '2024-07-21', users: '18 ' },
+    { img_url: './football3.png', title: 'Maracanã', location: 'Rio de Janeiro, Brazil', date: '2024-07-22', users: '20 ' },
+    { img_url: './football4.png', title: 'San Siro', location: 'Milan, Italy', date: '2024-07-23', users: '22 ' },
+    { img_url: './football5.png', title: 'Allianz Arena', location: 'Munich, Germany', date: '2024-07-24', users: '16 ' },
+    { img_url: './football6.png', title: 'Estadio Azteca', location: 'Mexico City, Mexico', date: '2024-07-25', users: '14 ' },
+    { img_url: './football7.jpeg', title: 'Santiago Bernabéu', location: 'Madrid, Spain', date: '2024-07-26', users: '19 ' },
+    { img_url: './football8.jpeg', title: 'Signal Iduna Park', location: 'Dortmund, Germany', date: '2024-07-27', users: '21 ' },
+  ],
+  Volleyball: [
+    { img_url: './volleyball1.png', title: 'Manhattan Beach', location: 'California, USA', date: '2024-07-20', users: '8 ' },
+    { img_url: './volleyball2.png', title: 'Copacabana Beach', location: 'Rio de Janeiro, Brazil', date: '2024-07-21', users: '10 ' },
+    { img_url: './volleyball3.png', title: 'Karon Beach', location: 'Phuket, Thailand', date: '2024-07-22', users: '6 ' },
+    { img_url: './volleyball4.png', title: 'Bondi Beach', location: 'Sydney, Australia', date: '2024-07-23', users: '12 ' },
+    { img_url: './volleyball5.png', title: 'Odaiba Beach', location: 'Tokyo, Japan', date: '2024-07-24', users: '9 ' },
+    { img_url: './volleyball6.png', title: 'Scheveningen Beach', location: 'The Hague, Netherlands', date: '2024-07-25', users: '7 ' },
+    { img_url: './volleyball7.png', title: 'South Beach', location: 'Miami, USA', date: '2024-07-26', users: '11 ' },
+    { img_url: './volleyball8.png', title: 'Sentosa Island', location: 'Singapore', date: '2024-07-27', users: '13 ' },
+  ],
+  Tennis: [
+    { img_url: './tennis1.png', title: 'Wimbledon', location: 'London, England', date: '2024-07-20', users: '4 ' },
+    { img_url: './tennis2.png', title: 'Roland Garros', location: 'Paris, France', date: '2024-07-21', users: '6 ' },
+    { img_url: './tennis3.png', title: 'Flushing Meadows', location: 'New York City, USA', date: '2024-07-22', users: '5 ' },
+    { img_url: './tennis4.png', title: 'Rod Laver Arena', location: 'Melbourne, Australia', date: '2024-07-23', users: '7 ' },
+    { img_url: './tennis5.png', title: 'Monte Carlo Country Club', location: 'Monte Carlo, Monaco', date: '2024-07-24', users: '3 ' },
+    { img_url: './tennis6.png', title: 'Indian Wells Tennis Garden', location: 'California, USA', date: '2024-07-25', users: '8 ' },
+    { img_url: './tennis7.png', title: 'Shanghai Masters', location: 'Shanghai, China', date: '2024-07-26', users: '4 ' },
+    { img_url: './tennis8.png', title: 'Dubai Duty Free Tennis Stadium', location: 'Dubai, UAE', date: '2024-07-27', users: '6 ' },
+  ],
+};
+
+
 const SubSports = () => {
   const [selectedSport, setSelectedSport] = useState(null);
-
   const handleJoinUpClick = (sport) => {
     setSelectedSport(sport);
-    handleSportClick(sport);
   };
 
   const handleBackClick = () => {
     setSelectedSport(null);
-    setCurrentMatches(null);
-  };
-
-  const basketballMatches = [
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball match",
-      location: "Location of the pitch",
-      date: "22/08/2024",
-      users: "7/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "Sports Hall A",
-      date: "23/08/2024",
-      users: "5/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "bros balling",
-      location: "the place",
-      date: "24/08/2024",
-      users: "8/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball match",
-      location: "Location of the pitch",
-      date: "23/08/2024",
-      users: "7/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "company time",
-      location: "bruv land",
-      date: "19/08/2024",
-      users: "4/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "Main Arena",
-      date: "29/08/2024",
-      users: "9/12",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "Community Gym",
-      date: "01/09/2024",
-      users: "8/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "High School Court",
-      date: "05/09/2024",
-      users: "6/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "College Stadium",
-      date: "12/09/2024",
-      users: "10/15",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "Downtown Sports Center",
-      date: "18/09/2024",
-      users: "4/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "Westside Gym",
-      date: "22/09/2024",
-      users: "5/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "East End Court",
-      date: "27/09/2024",
-      users: "6/12",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "Uptown Arena",
-      date: "30/09/2024",
-      users: "7/10",
-    },
-    {
-      img_url: "https://media.newyorker.com/photos/66759dc2003fd107cdf1b388/master/w_1920,c_limit/Sporting-Scene-Bronny-James.jpg",
-      title: "Basketball game",
-      location: "Northside Gym",
-      date: "03/10/2024",
-      users: "9/10",
-    }
-  ];
-
-  const footballMatches = [
-    {
-      img_url: BritainField,
-      title: "Great match of football",
-      location: "somewhere in britain",
-      date: "Not set",
-      users: "7/10",
-    },
-    {
-      img_url: StreetFootball,
-      title: "Street football",
-      location: "Location of the pitch",
-      date: "23/07/2024",
-      users: "5/10",
-    },
-    {
-      img_url: StadeDeFrance,
-      title: "Euros rematch",
-      location: "Stade de France",
-      date: "24/07/2024",
-      users: "20/22",
-    },
-    {
-      img_url: EstadioDaLuz,
-      title: "Benfica time",
-      location: "Estádio da Luz",
-      date: "10/08/2024",
-      users: "16/22",
-    },
-    {
-      img_url: StadiumDeToulouse,
-      title: "Stadium de Toulouse",
-      location: "Stadium de Toulouse",
-      date: "15/08/2024",
-      users: "15/22",
-    },
-    {
-      img_url: DefaultField,
-      title: "Football match",
-      location: "Location of the pitch",
-      date: "22/08/2024",
-      users: "18/22",
-    },
-  ];
-
-  const volleyballMatches = [
-    {
-      img_url: "https://thecapecurrent.com/wp-content/uploads/2023/07/play-volley-1024x768.jpg",
-      title: "Volleyball match",
-      location: "Location of the pitch",
-      date: "23/08/2024",
-      users: "7/12",
-    },
-    {
-      img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Algeria_and_Japan_women%27s_national_volleyball_team_at_the_2012_Summer_Olympics_%287913959028%29.jpg/1280px-Algeria_and_Japan_women%27s_national_volleyball_team_at_the_2012_Summer_Olympics_%287913959028%29.jpg",
-      title: "company time",
-      location: "Somewhere in London",
-      date: "19/08/2024",
-      users: "4/12",
-    },
-  ];
-
-  const tennisMatches = [
-    {
-      img_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/2013_Australian_Open_-_Guillaume_Rufin.jpg/800px-2013_Australian_Open_-_Guillaume_Rufin.jpg",
-      title: "Tennis game",
-      location: "Sports Hall A",
-      date: "23/08/2024",
-      users: "2/4",
-    },
-    {
-      img_url: "https://media.architecturaldigest.com/photos/62f1656d02cf54311bd70b54/master/w_2580%2Cc_limit/GettyImages-876716576.jpg",
-      title: "bros balling",
-      location: "San Paolo Converso",
-      date: "24/08/2024",
-      users: "1/2",
-    },
-    {
-      img_url: "https://media.architecturaldigest.com/photos/64ecc5cf05a95351482e1608/master/w_2580%2Cc_limit/GettyImages-162576503.jpg",
-      title: "Tennis match",
-      location: "Mürren, Switzerland",
-      date: "23/08/2024",
-      users: "1/2",
-    },
-    {
-      img_url: MaldivesTennisCourt,
-      title: "Ye we hot",
-      location: "Jumeirah Maldives",
-      date: "19/08/2024",
-      users: "3/4",
-    },
-  ];
-
-  const [currentMatches, setCurrentMatches] = useState(basketballMatches);
-
-  const handleSportClick = (sport) => {
-    switch (sport) {
-      case "Basketball":
-        setCurrentMatches(basketballMatches);
-        break;
-      case "Football":
-        setCurrentMatches(footballMatches);
-        break;
-      case "Volleyball":
-        setCurrentMatches(volleyballMatches);
-        break;
-      case "Tennis":
-        setCurrentMatches(tennisMatches);
-        break;
-      default:
-        setCurrentMatches([]);
-    }
   };
 
   if (selectedSport) {
     return (
-      <div className="AllSportsPage-sport-page">
+      <div className="sport-detail">
         <button className="AllSportsPage-back-button" onClick={handleBackClick}>← Back</button>
         <div className="AllSportsPage-sport-header">
           <h2>{selectedSport}</h2>
           <button className="AllSportsPage-sport-create-button">Create a match</button>
         </div>
-        <div className="AllSportsPage-sport-matches">
-          {currentMatches.map((match, index) => (
-            <MatchListItem key={index} {...match} />
+        <div className="matchlist-container">
+          {sportsData[selectedSport].map((match, index) => (
+            <MatchListItem
+              key={index}
+              img_url={match.img_url}
+              title={match.title}
+              location={match.location}
+              date={match.date}
+              users={match.users}
+            />
           ))}
         </div>
       </div>
