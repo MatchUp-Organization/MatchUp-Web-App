@@ -43,6 +43,7 @@
 
 .dashboard-leftside_content {
     width: 100%;
+    height: 100%;
 }
 
 .dashboard-leftside-content_navbutton {
@@ -102,16 +103,21 @@
 
 .dashboard-leftside_bottom {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: auto;
     margin-bottom: 50px;
     width: 100%;
 }
 
-.dashboard-leftside-bottom_image {
-    margin-right: 15px;
+.dashboard-leftside-bottom_settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 15px;
+    cursor: pointer;
 }
 
 .dashboard-leftside-bottom_text {
@@ -146,6 +152,7 @@
     height: 50px;
     width: 60%;
     display: flex;
+    margin-right: auto;
 }
 
 .dashboard-rightside-header-input_logo {
@@ -167,11 +174,19 @@
     padding: 0px 20px 0px 50px;
 }
 
+.dashboard-rightside-header_profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dashboard-rightside-header_profile:hover {
+    cursor: pointer;
+}
+
 .dashboard-rightside-header_picture {
     height: 36px;
     width: 36px;
-    margin-left: auto;
-    margin-right: 10px;
 }
 
 .dashboard-rightside-header_button {

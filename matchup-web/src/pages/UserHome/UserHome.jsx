@@ -69,8 +69,10 @@ export default function UserHome() {
           </div>
         </div>
         <div className="dashboard-leftside_bottom">
-          <img src={SettingsLogo} alt="Settings Logo" className="dashboard-leftside-bottom_image" />
-          <p className="dashboard-leftside-bottom_text">Settings</p>
+          <div className="dashboard-leftside-bottom_settings">
+            <img src={SettingsLogo} alt="Settings Logo" className="dashboard-leftside-bottom_image" />
+            <p className="dashboard-leftside-bottom_text">Settings</p>
+          </div>
         </div>
       </section>
       <section className="dashboard-rightside">
@@ -79,8 +81,10 @@ export default function UserHome() {
             <img src={SearchLogo} alt="Search Logo" className="dashboard-rightside-header-input_logo" />
             <input className="dashboard-rightside-header-input_input" type="text" placeholder="Search" />
           </div>
-          <img src={NoProfilePictureLogo} alt="Profile Logo" className="dashboard-rightside-header_picture" />
-          <img src={ProfileLogo} alt="Profile Logo" className="dashboard-rightside-header_button" />
+          <div className="dashboard-rightside-header_profile">
+            <img src={NoProfilePictureLogo} alt="Profile Logo" className="dashboard-rightside-header_picture" />
+            <img src={ProfileLogo} alt="Profile Logo" className="dashboard-rightside-header_button" />
+          </div>
         </header>
         <div className="dashboard-rightside_body">
           {renderComponent()}
