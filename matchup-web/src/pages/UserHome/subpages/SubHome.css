@@ -1,12 +1,225 @@
-.full-height-width {
+.subhome {
     height: 100%;
-    width: 100%;
+    width: calc(100% - 30px);
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     font-size: 24px;
     font-weight: bold;
     background-color: #F5F5F5;
     border-top-left-radius: 10px;
-    margin-top: 20px;
+    padding: 40px 40px 40px 40px;
+    margin-left: 30px;
+}
+
+.subhome-title {
+    margin: 0;
+    color: black;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 30px;
+}
+
+.subhome-content-wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.subhome-content {
+    flex: 1;
+    margin-right: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.subhome-radarchart {
+    position: relative;
+    flex: 1;
+    border-radius: 10px;
+    background-color: white;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 20px;
+}
+
+.subhome-radarchart_title {
+    margin: 0;
+    color: black;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.subhome-radarchart_image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subhome-radarchart-ranking {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+}
+
+.subhome-radarchart-ranking_text {
+    margin: 0;
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+}
+
+.subhome-radarchart-ranking_button {
+    background-color: #3F72AF;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 30px;
+    margin-top: 30px;
+}
+
+/*  */
+
+.subhome-content-bottomcomp {
+    background-color: white;
+    border-radius: 10px;
+    height: fit-content;
+    min-height: 50%;
+    max-height: 600px;
+    padding: 20px 20px;
+}
+
+.subhome-content-bottomcomp_title {
+    margin: 0;
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.subhome-content-bottomcomp_content {
+
+}
+
+.subhome-content-bottomcomp-content_element {
+    height: 70px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    padding-left: 15px;
+}
+
+.subhome-content-bottomcomp-content-element_date {
+    width: 30px;
+    margin: 0;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    margin-right: 10px;
+}
+
+.subhome-content-bottomcomp-content-element_datemonth {
+    width: 30px;
+    margin: 0;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    margin-right: 10px;
+}
+
+.subhome-content-bottomcomp-content-element_infos {
+    display: flex;
+    flex-direction: column;
+}
+
+.subhome-content-bottomcomp-content-element-infos_title {
+    margin: 0;
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 5px;
+}
+
+.subhome-content-bottomcomp-content-element-infos_location {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.subhome-content-bottomcomp-content-element-infos-location_logo {
+    margin-right: 10px;
+}
+
+.subhome-content-bottomcomp-content-element-infos-location_text {
+    margin: 0;
+    color: #3F72AF;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/*  */
+
+.subhome-content-bottomcomp_header {
+    display: flex;
+    flex-direction: row;
+}
+
+.subhome-content-bottomcomp-header_text {
+    margin: 0;
+    color: #929292;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.subhome-content-bottomcomp-table {
+    margin-top: 5px;
+}
+
+.subhome-content-bottomcomp-table_text {
+    margin: 0;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 15px;
+}
+
+.subhome-content-bottomcomp-table_textgreen {
+    color: #25E007;
+}
+
+.subhome-content-bottomcomp-column1 {
+    flex: 1;
+}
+
+.subhome-content-bottomcomp-column2 {
+    width: 100px;
+    text-align: center;
+}
+
+.subhome-content-bottomcomp-column3 {
+    width: 100px;
+    text-align: center;
 }

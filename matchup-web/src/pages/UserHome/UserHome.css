@@ -138,6 +138,7 @@
     display: flex;
     align-items: center;
     padding: 0px 30px;
+    margin-bottom: 30px;
 }
 
 .dashboard-rightside-header_input {
@@ -180,8 +181,8 @@
 /*  */
 
 .dashboard-rightside_body {
+    position: relative;
     background-color: white;
-    min-height: auto;
     width: 100%;
     height: 100%;
 }
