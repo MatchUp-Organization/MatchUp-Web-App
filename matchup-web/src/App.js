@@ -10,6 +10,7 @@ import Login from "./pages/Login/Login"
 import UserHome from "./pages/UserHome"
 import RequireAuth from "./components/other/RequireAuth"
 import PersistLogin from "./components/other/PersistLogin"
+import AllSportsPage from "./pages/sports/AllSports/AllSportsPage"
 import FootballPage from "./pages/sports/Football/FootballPage"
 import BasketballPage from "./pages/sports/basketball/BasketballPage"
 import TennisPage from "./pages/sports/Tennis/TennisPage"
@@ -34,6 +35,7 @@ function App() {
 
         {/* Protected routes */}
         <Route element={<PersistLogin />}>
+          <Route path="allsports" element={<AllSportsPage />} />
           <Route path="football" element={<FootballPage />} />
           <Route path="basketball" element={<BasketballPage />} />
           <Route path="volleyball" element={<VolleyballPage />} />
