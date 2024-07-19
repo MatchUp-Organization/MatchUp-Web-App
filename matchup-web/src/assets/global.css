@@ -37,4 +37,8 @@ code {
     --warning: #ffff00;
     --info: #00ffff;
     --input-bg: #dddddd;
+    --text-color: #000;
+    --text-color-light: #fff;
+    --text-color-dark: #000;
+    --text-color-description: #727272;
 }

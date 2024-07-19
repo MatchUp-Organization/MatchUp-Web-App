@@ -33,3 +33,37 @@
     display: flex;
     flex-direction: column;
 }
+
+.matchlistitem-content-left_title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.matchlistitem-content-left_location {
+    color: var(--primary);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.matchlistitem-content-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.matchlistitem-content-right_date {
+    color: var(--text-color-description);
+}
+
+.matchlistitem-content-right_users {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+
+.matchlistitem-content-right_users-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
