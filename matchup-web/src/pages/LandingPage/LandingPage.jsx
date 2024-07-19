@@ -37,9 +37,11 @@ export default function LandingPage() {
                     <a href="#section-question">
                         <p className="home-header__button" >Contact</p>
                     </a>
-                    <div className="home-header__signup-button">
+                    <div className="home-header__signup-container">
                         <Link to="/login" className="login-button">
-                            <p className="home-header-signup__text">Sign Up</p>
+                            <div className="home-header__signup-button">
+                                <p className="home-header-signup__text">Sign Up</p>
+                            </div>
                         </Link>
                     </div>
                 </div>

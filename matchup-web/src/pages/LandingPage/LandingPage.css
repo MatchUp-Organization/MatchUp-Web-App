@@ -60,11 +60,17 @@ section {
     color: #3F72AF;
 }
 
+.home-header__signup-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 20px;
+}
+
 .home-header__signup-button {
     padding: 5px 32px;
     background-color: #3F72AF;
     border-radius: 10px;
-    margin-left: 60px;
     box-shadow: 1px 4px 10px 0px #1f62ff43;
 }
 

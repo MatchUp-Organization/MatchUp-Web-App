@@ -1,6 +1,6 @@
 .matchlistitem-container {
-    width: 420px;
-    height: 300px;
+    width: 370px;
+    height: 280px;
     display: flex;
     flex-direction: column;
 }
@@ -10,7 +10,7 @@
 }
 
 .matchlistitem-header {
-    height: 200px;
+    height: 190px;
     overflow: hidden;
     border-radius: 10px;
 }
